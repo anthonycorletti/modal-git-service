@@ -135,3 +135,4 @@ cython_debug/
 
 tmp/
 *_cache/
+*.env.production
