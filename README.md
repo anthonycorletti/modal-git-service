@@ -11,18 +11,29 @@ This project uses `uv` to install and manage dependencies, so make sure you have
 
 Clone this repo and deploy to modal like so:
 
-```
+```sh
 git clone https://github.com/anthonycorletti/modal-git-service.git && cd modal-git-service
 bin/install
 bin/deploy-modal
 ```
 
-Grab the url of your deployed service. It should be something like `https://profilename--git-on-modal.modal.run`.
+Grab the url of your deployed service. It should be something like `https://PROFILENAME--git-on-modal.modal.run`.
 
-If you created at repo at `owner/repo`, run the following:
+Push some code to your service
 
+```sh
+mkdir repo && cd repo
+echo "# hello world" > README.md
+git init
+git add -A
+git commit -m "initial commit"
+git remote add origin https://PROFILENAME--git-on-modal.modal.run/owner/repo.git
+git push -u origin main
 ```
-git clone https://casadotdev--git-on-modal.modal.run/owner/repo.git
+
+And clone it down
+```sh
+git clone https://PROFILENAME--git-on-modal.modal.run/owner/repo.git repo-clone
 ```
 
 There you have it! Your own little git service.
